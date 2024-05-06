@@ -15,6 +15,17 @@ export default {
       },
       borderRadius: {
         DEFAULT: "var(--radius)",
+        sm: "calc(var(--radius) - 2px)",
+        md: "calc(var(--radius) + 2px)",
+        lg: "calc(var(--radius) + 4px)",
+        xl: "calc(var(--radius) + 6px)",
+        "2xl": "calc(var(--radius) + 8px)",
+      },
+      spacing: {
+        header: "var(--header-height)",
+        "sidebar-open": "var(--sidebar-open-width)",
+        "sidebar-closed": "var(--sidebar-closed-width)",
+        "sidebar-width": "var(--sidebar-width)",
       },
       colors: {
         border: "hsl(var(--border))",
