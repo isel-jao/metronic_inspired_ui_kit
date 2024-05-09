@@ -23,7 +23,7 @@ export default {
       },
       spacing: {
         header: "var(--header-height)",
-        "sidebar-open": "var(--sidebar-open-width)",
+        "sidebar-open": "var(--sidebar-opened-width)",
         "sidebar-closed": "var(--sidebar-closed-width)",
         "sidebar-width": "var(--sidebar-width)",
       },
