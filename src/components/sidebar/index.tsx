@@ -1,19 +1,59 @@
-import { ArrowLeftToLineIcon } from "lucide-react";
+import { SidebarToggleButton } from "../sidebar-toggle-button";
+import { Link } from "react-router-dom";
+import React from "react";
+
+export type Route = {
+  name: string;
+  icon?: React.ReactNode;
+} & (
+  | {
+      path: string;
+    }
+  | {
+      children: Route[];
+    }
+);
+
+export const routes: Route[] = [
+  {
+    name: "Dashboard",
+    path: "/",
+  },
+  {
+    name: "Components",
+    children: [
+      {
+        name: "Button",
+        path: "/components/button",
+      },
+    ],
+  },
+];
+
+export const RouteItem = ({ route }: { route: Route; level?: number }) => {
+  if ("path" in route) {
+    return (
+      <Link to={route.path} className="px-4 py-2 font-semibold  ">
+        {route.name}
+      </Link>
+    );
+  }
+  return (
+    <>
+      <div className=" flex items-center px-4 py-2 font-semibold">
+        {route.icon}
+        <span>{route.name}</span>
+      </div>
+      <div className="flex flex-col pl-4">
+        {route.children.map((child) => (
+          <RouteItem key={child.name} route={child} />
+        ))}
+      </div>
+    </>
+  );
+};
 
 export const Sidebar = () => {
-  const toggleSidebarOpen = () => {
-    const isOpen = document.body.getAttribute("data-sidebar-open") === "true";
-    document.body.setAttribute("data-sidebar-open", String(!isOpen));
-    document.body.style.setProperty(
-      "--sidebar-width",
-      isOpen ? "var(--sidebar-opened-width)" : "var(--sidebar-closed-width)",
-    );
-    document.body.style.setProperty(
-      "--sidebar-toggle-icon-rotate",
-      isOpen ? "0deg" : "180deg",
-    );
-  };
-
   return (
     <div
       data-sidebar-open="false"
@@ -23,19 +63,12 @@ export const Sidebar = () => {
         <div className=" grid h-full w-sidebar-closed place-content-center font-extrabold">
           LOGO
         </div>
-        <button
-          onClick={toggleSidebarOpen}
-          onMouseEnter={(e) => e.stopPropagation()}
-          className="absolute bottom-1/2 right-0 top-1/2 grid size-7 -translate-y-1/2 translate-x-1/2 place-content-center rounded-sm border border-gray-500/10 bg-white text-gray-500  shadow-lg shadow-black/20 transition-colors hover:text-primary"
-        >
-          <ArrowLeftToLineIcon
-            className="transition-transform duration-500"
-            size={14}
-            style={{
-              transform: "rotate(var(--sidebar-toggle-icon-rotate))",
-            }}
-          />
-        </button>
+        <SidebarToggleButton />
+        <div className="flex flex-col px-4">
+          {routes.map((route) => (
+            <RouteItem key={route.name} route={route} />
+          ))}
+        </div>
       </div>
     </div>
   );

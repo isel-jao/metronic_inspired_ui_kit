@@ -1,8 +1,9 @@
 import App from "@/App";
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import NotfoundPage from "@/pages/notfound";
 import HomePage from "@/pages/home";
 import DevPage from "@/pages/dev";
+import ButtonPage from "@/pages/components/button";
 
 export type Route = {
   path: string;
@@ -20,6 +21,18 @@ export const routes: Route[] = [
         path: "",
         name: "Home",
         element: <HomePage />,
+      },
+      {
+        path: "components",
+        name: "Components",
+        element: <Outlet />,
+        children: [
+          {
+            name: "Button",
+            path: "button",
+            element: <ButtonPage />,
+          },
+        ],
       },
       {
         path: "dev",

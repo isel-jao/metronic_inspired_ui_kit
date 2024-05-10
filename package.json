@@ -11,16 +11,19 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^11.1.9",
     "lucide-react": "^0.378.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
+    "react-syntax-highlighter": "^15.5.0",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.8",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

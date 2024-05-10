@@ -104,7 +104,7 @@ const Story = ({ code, children, title, ...props }: StoryProps) => {
   );
 };
 
-export default function DevPage() {
+export default function ButtonPage() {
   return (
     <main className=" mx-auto max-w-screen-2xl p-6">
       <Story title="Variants" code={variantsCode}>
