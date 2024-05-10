@@ -25,3 +25,4 @@ dist-ssr
 
 src/pages/dev
 .env
+src/pages/dev
