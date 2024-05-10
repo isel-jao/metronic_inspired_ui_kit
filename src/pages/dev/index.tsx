@@ -106,7 +106,7 @@ const Story = ({ code, children, title, ...props }: StoryProps) => {
 
 export default function DevPage() {
   return (
-    <main className=" mx-auto max-w-screen-2xl p-6">
+    <main className="  mx-auto max-w-screen-2xl p-6">
       <Story title="Variants" code={variantsCode}>
         <div className="p-4">
           <div className="flex gap-2">

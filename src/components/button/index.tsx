@@ -16,7 +16,7 @@ export function Button({
     <button
       {...props}
       className={cn(
-        " h-fit w-fit rounded-sm px-3 py-1.5 font-semibold duration-300 ",
+        " h-fit w-fit rounded-sm px-3 py-1.5 font-semibold opacity-75 duration-300 disabled:pointer-events-none disabled:grayscale-[75%]",
         {
           "bg-primary text-primary-foreground transition-[filter] hover:brightness-90 active:brightness-105":
             variant === "primary",
