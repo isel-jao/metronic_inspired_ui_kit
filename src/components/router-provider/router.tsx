@@ -4,6 +4,7 @@ import NotfoundPage from "@/pages/notfound";
 import HomePage from "@/pages/home";
 import DevPage from "@/pages/dev";
 import ButtonPage from "@/pages/components/button";
+import AccordionPage from "@/pages/components/accodion";
 
 export type Route = {
   path: string;
@@ -31,6 +32,11 @@ export const routes: Route[] = [
             name: "Button",
             path: "button",
             element: <ButtonPage />,
+          },
+          {
+            name: "Accordion",
+            path: "accordion",
+            element: <AccordionPage />,
           },
         ],
       },

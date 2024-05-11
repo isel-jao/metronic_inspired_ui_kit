@@ -22,6 +22,10 @@ export const routes: Route[] = [
         name: "Button",
         path: "/components/button",
       },
+      {
+        name: "Accordion",
+        path: "/components/accordion",
+      },
     ],
   },
 ];

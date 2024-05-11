@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "text" | "outlined" | "muted";
+  variant?: "primary" | "text" | "outlined" | "muted" | "base";
   size?: "sm" | "md" | "lg" | "icon";
 }
 
@@ -16,20 +16,20 @@ export function Button({
     <button
       {...props}
       className={cn(
-        " h-fit w-fit rounded-sm px-3 py-1.5 font-semibold opacity-75 duration-300 disabled:pointer-events-none disabled:grayscale-[75%]",
+        "relative flex h-fit w-fit items-center justify-center rounded-sm px-3 py-1.5 font-semibold capitalize opacity-75 duration-300 disabled:pointer-events-none disabled:grayscale-[75%]",
         {
           "bg-primary text-primary-foreground transition-[filter] hover:brightness-90 active:brightness-105":
             variant === "primary",
           "bg-muted text-muted-foreground transition-[filter] hover:brightness-95 active:brightness-100":
             variant === "muted",
-          "transition-colors hover:text-primary active:bg-primary/5":
+          "after:contents-[''] text-primary after:absolute after:inset-0 after:rounded-sm after:bg-current after:opacity-0 after:transition-opacity hover:after:opacity-5 active:after:opacity-10":
             variant === "text",
-          "border border-primary/50 text-primary transition-colors hover:border-primary hover:bg-primary/5 active:bg-primary/10":
+          "after:contents-[''] before:contents-[''] text-primary before:absolute before:inset-0 before:rounded-sm before:bg-current before:opacity-0 before:transition-opacity after:absolute after:inset-0 after:rounded-sm after:border after:border-current after:opacity-50 after:transition-opacity hover:after:opacity-100 active:before:opacity-10":
             variant === "outlined",
           "px-2 py-1": size === "sm",
           "px-3 py-1.5": size === "md",
           "px-4 py-2": size === "lg",
-          "grid size-8 place-content-center": size === "icon",
+          "size-8": size === "icon",
         },
         className,
       )}
