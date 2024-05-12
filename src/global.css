@@ -101,3 +101,22 @@ main {
 body {
   @apply bg-background text-foreground;
 }
+
+body:has(dialog:modal) {
+  overflow: hidden !important;
+}
+
+dialog[open] {
+  animation: dialog-open 250ms ease forwards;
+}
+
+@keyframes dialog-open {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
